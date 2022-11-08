@@ -1,0 +1,14 @@
+{
+  "name": "estagio-1",
+  "version": "1.0.0",
+  "description": "Avaliação para teste de estagio Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "author": "Daniel Reis",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
