@@ -1,7 +1,7 @@
-const routes = require ("express").Router();
-const TaskController = require ("../controller/TaskController")
+const routes = require("express").Router();
+const TaskController = require("../controller/TaskController");
 
+routes.get("/api", TaskController.getALLtask);
+routes.post("/create", TaskController.createTask);
 
-routes.get("/api", TaskController.getALL)
-
-module.exports = routes 
+module.exports = routes;
