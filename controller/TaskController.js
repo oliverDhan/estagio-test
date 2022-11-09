@@ -1,4 +1,6 @@
+const { Model } = require("mongoose");
 const Task = require("../models/Task");
+const { route } = require("../routes/routes");
 
 let message = "";
 let type = "";
@@ -9,7 +11,7 @@ const getALLtask = async (req, res) => {
       message = "";
     }, 1000);
     const taskList = await Task.find();
-    //console.log(taskList);
+    console.log(taskList);
     return res.render("index", {
       taskList,
       task: null,
@@ -80,14 +82,12 @@ const deleteOneTask = async (req, res) => {
 };
 const taskCheck = async (req, res) => {
   try {
-    const task = await Task.findOne({ _id: req.params.id },);
+    const task = await Task.findOne({ _id: req.params.id });
 
     if (task.check) {
       task.check = false;
-      
     } else {
       task.check = true;
-      
     }
     await Task.updateOne({ _id: req.params.id }, task);
     res.redirect("/api");
@@ -95,6 +95,15 @@ const taskCheck = async (req, res) => {
     res.status(500).send({ error: err.message });
   }
 };
+
+/*const model= async(req, res)=>{
+  const {page, pageSize } = req.params;
+  const data = await Model.find().skip(page * pageSize).limit(pageSize);
+  
+  return res.json(data);
+}*/
+
+
 module.exports = {
   getALLtask,
   createTask,
@@ -102,4 +111,5 @@ module.exports = {
   updateOneTask,
   deleteOneTask,
   taskCheck,
+
 };

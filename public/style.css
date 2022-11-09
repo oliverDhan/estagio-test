@@ -37,7 +37,22 @@ input{
     background-color:#202024;
     color: #fff;
 }
-
+.btnHeader{
+    margin-left: 25.5%;
+    padding-left:.4rem;
+    width: 100%;  
+    cursor: pointer; 
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    font-size: 1rem;
+    
+}
+.btnHeader:hover{
+    color: red;
+    transition: all .3s ease-in-out;
+    
+}
 button{
     padding: .6rem;
     width: 20%;
@@ -63,6 +78,7 @@ section#task {
 }
 ul{
     list-style: none;
+    flex-direction: column-reverse;
 }
 ul li{
     position: relative;
@@ -70,7 +86,7 @@ ul li{
     background-color: #050513 ;
     color: #fff;
     text-decoration: none;
-    display: flex;
+    display: flex; 
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
