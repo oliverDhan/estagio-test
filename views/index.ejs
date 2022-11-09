@@ -10,6 +10,16 @@
 </head>
 <body>
 
+    <% if (message != "") {%>
+
+    <section class="message message-<%=type %>">
+        <p><%= message %> </p>
+        <span id="close-message"><i class="bi bi-x"></i></span>
+
+
+    </section>
+    <% } %>
+
     <header>  
         
         <% if (task == null) { %>
@@ -29,9 +39,9 @@
     <section id="task" >
         <ul>
             <% taskList.forEach((task)=> {%>
-                <li>
+                <li class="check-<%= task.check %>">
                    <div>
-                        <a href="/"> <%= task.task %> </a>
+                        <a href="/api/check/<%=task._id %>"class="check-<%= task.check %>"> <%= task.task %> </a>
                         <span>Criado em <%= task.date.toLocaleDateString
                         ('pt-br') %></span> 
                     </div>
