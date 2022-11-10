@@ -29,23 +29,5 @@ const taskSchema = new mongoose.Schema({
   },
 });
 
-/*const model = new Schema({
-  body: {
-    type: String,
-    require: true,
-  },
-  completed: {
-    type: String,
-    require: true,
-  },
-  comepletedAt: {
-    type: Date,
-    default: Date.now(),
-  },
-
-  createAt: {
-    type: Date,
-  },
-});*/
 
 module.exports = mongoose.model("Task", taskSchema);

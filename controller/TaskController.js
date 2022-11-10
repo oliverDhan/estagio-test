@@ -96,12 +96,12 @@ const taskCheck = async (req, res) => {
   }
 };
 
-/*const model= async(req, res)=>{
+const model= async(req, res)=>{
   const {page, pageSize } = req.params;
-  const data = await Model.find().skip(page * pageSize).limit(pageSize);
+  const data = await Task.find().skip(page * pageSize).limit(pageSize);
   
   return res.json(data);
-}*/
+}
 
 
 module.exports = {
@@ -111,5 +111,6 @@ module.exports = {
   updateOneTask,
   deleteOneTask,
   taskCheck,
+  model,
 
 };

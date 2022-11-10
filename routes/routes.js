@@ -7,7 +7,7 @@ routes.get("/getById/:id/:method", TaskController.getById);
 routes.post("/api/updateOne/:id", TaskController.updateOneTask);
 routes.get("/deleteOne/:id", TaskController.deleteOneTask);
 routes.get("/api/check/:id", TaskController.taskCheck);
-//routes.get("/api/send", TaskController.model);
+routes.get("/api/send", TaskController.model);
   
 
 
