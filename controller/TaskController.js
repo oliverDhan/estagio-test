@@ -51,7 +51,14 @@ const getById = async (req, res) => {
       res.render("index", { task, taskDelete: null, taskList, message, type });
     } else {
       const taskDelete = await Task.findOne({ _id: req.params.id });
-      res.render("index", { task: null, taskDelete, taskList, message, type });
+      res.render("index", {
+        task: null,
+        taskDelete,
+        taskList,
+
+        message,
+        type,
+      });
     }
   } catch (err) {
     res.status(500).send({ error: err.message });
@@ -96,14 +103,25 @@ const taskCheck = async (req, res) => {
   }
 };
 
-const model= async(req, res)=>{
-  const {page, pageSize } = req.params;
-  const data = await Task.find().skip(page * pageSize).limit(pageSize);
-  
+const model = async (req, res) => {
+  const { page, pageSize } = req.params;
+  const data = await Task.find()
+    .skip(page * pageSize)
+    .limit(pageSize);
+
   return res.json(data);
-}
+};
 
-
+const deleteAllTask = async (req, res) => {
+  try {
+    await Task.deleteAll({ _id: req.params.id });
+    message = "Todas as tarefas apagadas";
+    type = "sucess";
+    res.redirect("/api");
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+};
 module.exports = {
   getALLtask,
   createTask,
@@ -112,5 +130,4 @@ module.exports = {
   deleteOneTask,
   taskCheck,
   model,
-
 };
